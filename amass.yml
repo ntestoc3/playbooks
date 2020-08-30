@@ -1,0 +1,14 @@
+
+- name: amass
+  hosts: all
+  gather_facts: False
+  tasks:
+    - name: install amass
+      import_tasks:
+        file: check_and_download_copy.yml
+      vars:
+        name: amass
+        bin_name: amass
+        url: https://github.com/OWASP/Amass/releases/download/v3.9.1/amass_linux_amd64.zip
+        files: amass
+

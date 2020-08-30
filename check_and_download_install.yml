@@ -1,0 +1,18 @@
+- name: "check if {{ name }} is installed"
+  shell: "type {{ bin_name }}"
+  register: exec_check
+  ignore_errors: yes
+  failed_when: False
+  changed_when: False
+
+- name: "download {{ name }}"
+  get_url:
+    url: "{{ url }}"
+    dest: "/tmp/install-{{ name }}"
+    mode: '0755'
+  when: exec_check.stderr.find('not found') != -1
+              
+- name: "install {{ name }}"
+  shell: "/tmp/install-{{ name }}"
+  when: exec_check.stderr.find('not found') != -1
+                

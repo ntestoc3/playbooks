@@ -1,0 +1,44 @@
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: install java
+      package:
+        name: java-latest-openjdk.x86_64
+        state: present
+
+    - name: install basic packages
+      package:
+        name: 
+          - vim
+          - tmux
+          - rlwrap
+          - curl
+          - docker
+          - docker-compose
+          - the_silver_searcher # ag search
+        state: present
+
+    - name: babashka
+      import_tasks:
+        file: check_and_download_install.yml
+      vars:
+        name: babashka
+        bin_name: bb
+        url: https://raw.githubusercontent.com/borkdude/babashka/master/install
+
+    - name: jet
+      import_tasks:
+        file: check_and_download_install.yml
+      vars:
+        name: jet
+        bin_name: bb
+        url: https://raw.githubusercontent.com/borkdude/jet/master/install
+
+    - name: add jbq alias
+      lineinfile:
+        path: ~/.profile
+        regexp: '^alias jbq'
+        line: alias jbq='jet --from json --to edn | bb -I --stream'
+        
+        
+

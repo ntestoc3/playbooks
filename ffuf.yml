@@ -1,0 +1,14 @@
+
+- name: ffuf
+  hosts: all
+  gather_facts: False
+  tasks:
+    - name: install ffuf
+      import_tasks:
+        file: check_and_download_copy.yml
+      vars:
+        name: ffuf
+        bin_name: ffuf
+        url: https://github.com/ffuf/ffuf/releases/download/v1.1.0/ffuf_1.1.0_linux_amd64.tar.gz
+        files: ffuf
+

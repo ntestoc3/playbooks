@@ -1,0 +1,18 @@
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: install nmap
+      package:
+        name: nmap
+        state: present
+
+    - name: install masscan
+      package:
+        name: masscan
+        state: present
+
+- import_playbook: amass.yml
+- import_playbook: aquatone.yml
+- import_playbook: ffuf.yml
+
+

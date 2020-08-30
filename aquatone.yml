@@ -1,0 +1,14 @@
+
+- name: aquatone
+  hosts: all
+  gather_facts: False
+  tasks:
+    - name: install aquatone
+      import_tasks:
+        file: check_and_download_copy.yml
+      vars:
+        name: aquatone
+        bin_name: aquatone
+        url: https://github.com/ntestoc3/aquatone/releases/download/v1.7.1-beta.5/aquatone_linux_amd64_1.7.1.zip
+        files: aquatone
+
