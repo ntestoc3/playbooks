@@ -11,6 +11,15 @@
         name: masscan
         state: present
 
+    - name: install python3
+      package:
+        name: python3-pip
+        state: present
+
+    - pip:
+        name: norecon
+        executable: pip3
+
 - import_playbook: amass.yml
 - import_playbook: aquatone.yml
 - import_playbook: ffuf.yml
