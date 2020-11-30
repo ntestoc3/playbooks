@@ -9,6 +9,6 @@
       vars:
         name: amass
         bin_name: amass
-        url: https://github.com/OWASP/Amass/releases/download/v3.9.1/amass_linux_amd64.zip
-        files: amass
+        url: https://github.com/OWASP/Amass/releases/download/v3.10.5/amass_linux_amd64.zip
+        files: amass_linux_amd64/amass
 

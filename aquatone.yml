@@ -9,6 +9,6 @@
       vars:
         name: aquatone
         bin_name: aquatone
-        url: https://github.com/ntestoc3/aquatone/releases/download/v1.7.1-beta.5/aquatone_linux_amd64_1.7.1.zip
+        url: https://github.com/ntestoc3/aquatone/releases/download/v1.7.1-beta.8/aquatone_linux_amd64_1.7.1.zip
         files: aquatone
 
